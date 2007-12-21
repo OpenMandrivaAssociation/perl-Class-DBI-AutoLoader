@@ -16,6 +16,7 @@ BuildRequires:  perl-devel
 %endif
 BuildRequires:  perl(DBI)
 BuildArch:      noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 Class::DBI::AutoLoader scans the tables in a given database, and auto-generates
