@@ -1,7 +1,7 @@
 %define module  Class-DBI-AutoLoader
 %define name    perl-%{module}
 %define version 0.12
-%define release %mkrel 4
+%define release %mkrel 6
 
 Name:           %{name}
 Version:        %{version}
