@@ -1,22 +1,22 @@
-%define module  Class-DBI-AutoLoader
-%define name    perl-%{module}
-%define version 0.12
-%define release %mkrel 6
+%define upstream_name    Class-DBI-AutoLoader
+%define upstream_version 0.12
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
-Summary:        Generates Class::DBI subclasses dynamically
-License:        GPL or Artistic
-Group:          Development/Perl
-Url:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Class/%{module}-%{version}.tar.bz2
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:    Generates Class::DBI subclasses dynamically
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Class/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:  perl-devel
 %endif
 BuildRequires:  perl(DBI)
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Class::DBI::AutoLoader scans the tables in a given database, and auto-generates
@@ -25,7 +25,7 @@ Class::DBI::AutoLoader, as though you had created the Data::FavoriteFilms class
 and "use"d that directly.
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -46,4 +46,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Class
 %{_mandir}/*/*
-
