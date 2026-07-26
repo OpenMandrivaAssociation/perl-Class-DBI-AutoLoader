@@ -1,15 +1,13 @@
 %define upstream_name    Class-DBI-AutoLoader
-%define upstream_version 0.12
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	6
+Version:	0.12
+Release:	7
 
 Summary:	Generates Class::DBI subclasses dynamically
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Class-DBI-AutoLoader
-Source0:	https://cpan.metacpan.org/authors/id/R/RY/RYANPARR/Class-DBI-AutoLoader-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/R/RY/RYANPARR/Class-DBI-AutoLoader-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -23,7 +21,7 @@ Class::DBI::AutoLoader, as though you had created the Data::FavoriteFilms class
 and "use"d that directly.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -48,9 +46,7 @@ make test
 
 * Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 0.120.0-1mdv2011.0
 + Revision: 403008
-- rebuild using %%perl_convert_version
-
-* Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 0.12-6mdv2009.0
+- rebuild using %0.12 Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 0.12-6mdv2009.0
 + Revision: 241177
 - rebuild
 - kill re-definition of %%buildroot on Pixel's request
